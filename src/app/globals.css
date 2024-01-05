@@ -75,11 +75,14 @@ h6 {
   isolation: isolate;
 }
 
+html, body {
+  height: 100%;
+}
+
 html {
-  --max-width: 525px;
   --color-text: hsl(220deg, 20% 20% / .9);
-  --color-background: 'white';
-  
+  --color-background: '#eeeeee';
+  --max-width: 525px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono',
     'Droid Sans Mono', 'Courier New', monospace;
@@ -87,18 +90,23 @@ html {
 
 body {
   color: var(--color-text);
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-    rgb(var(--background-start-rgb));
+  background: var(--color-background);
   font-size: 16px;
+  padding: 2em;
+  transition: color 250ms, background 250ms, transform 250ms;
 }
 
 header {
   height: 30px;
   margin-bottom: 10em;
 }
+
 main {
   max-width: var(--max-width);
-  padding: 2em;
+}
+
+main article {
+  margin-bottom: 1em;
 }
 
 h1 {

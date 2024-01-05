@@ -3,6 +3,10 @@ import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import { BookOpen, Heart, Sun } from 'react-feather'
+import { cookies } from "next/headers";
+import { DARK_COLORS, LIGHT_COLORS, THEME_LIGHT } from '@/constants'
+import { CSSProperties } from 'react'
+import DarkLightToggle from '@/components/DarkLightToggle/DarkLightToggle'
 
 const mainFont = Open_Sans({
   subsets: ['latin'],
@@ -19,19 +23,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const savedTheme = cookies().get('theme');
+  const theme = savedTheme?.value || THEME_LIGHT;
+
+  const themeColors = theme === THEME_LIGHT ? LIGHT_COLORS as CSSProperties : DARK_COLORS as CSSProperties;
+
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme} style={themeColors}>
       <body className={mainFont.className}>
         <header>
           <nav aria-labelledby='main navigation'>
             <Link href='/' className='logo'><BookOpen /></Link>
-            <button><Sun /></button>
+            <DarkLightToggle initialTheme={theme} />
           </nav>
         </header>
         <main>{children}</main>
         <footer>
           <span>&copy; 2023</span>
-          <Heart />
+          <Heart fill='var(--color-text)' />
         </footer>
       </body>
     </html>
