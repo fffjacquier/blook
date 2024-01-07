@@ -1,0 +1,6 @@
+.logo {
+  width: 24px;
+  height: 24px;
+  margin-right: auto;
+  fill: var(--color-text);
+}

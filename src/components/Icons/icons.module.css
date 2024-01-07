@@ -1,0 +1,7 @@
+.btn {
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  fill: var(--color-text);
+  background: transparent;
+}
