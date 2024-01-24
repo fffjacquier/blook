@@ -1,12 +1,17 @@
-import { loadContent } from '@/utils/helpers';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { BlogPost, DATA } from '../page';
+import styles from './page.module.css';
 
-export default async function Post({ params }: { params: { slug: string } }) {
-  const { content } = await loadContent(params.slug);
+export default function Post({ params }: { params: { slug: string } }) {
+  const { bookTitle, bookAuthor, summary } = DATA.find(
+    (d) => d.slug === params.slug
+  ) as BlogPost;
 
   return (
-    <article>
-      <MDXRemote source={content} />
-    </article>
+    <>
+      <h1>{bookTitle}</h1>
+      <h2 className={styles.main}>{bookAuthor}</h2>
+
+      <p>{summary}</p>
+    </>
   );
 }
