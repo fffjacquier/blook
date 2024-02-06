@@ -1,0 +1,34 @@
+.hslWrapper {
+  position: relative;
+  width: var(--width);
+  height: var(--width);
+}
+.hslWrapper button {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid black;
+  border-radius: 50%;
+  transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+  transform-origin: center center;
+  cursor: grab;
+  user-select: none;
+  box-shadow: white 0px 0px 0px 2px inset;
+}
+.lightness {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, black, white);
+}
+.saturation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  background: linear-gradient(
+    to right,
+    hsl(var(--hue) var(--saturation) var(--lightness) / 0),
+    hsl(var(--hue) var(--saturation) var(--lightness) / 1)
+  );
+}

@@ -1,0 +1,143 @@
+.hueWrapper {
+  position: relative;
+  width: var(--width);
+  height: var(--width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hueWrapper button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: calc(var(--wheel-thickness) + 12px);
+  border: 2px solid;
+  transform: translate(
+      calc(-50% + var(--x) - var(--white-border-thickness)),
+      calc(-50% + var(--y) - var(--white-border-thickness))
+    )
+    rotate(var(--rotation));
+  transform-origin: center center;
+  box-shadow: white 0px 0px 0px 2px inset;
+  background: hsl(var(--rotation) 100% 50%);
+  pointer-events: none;
+}
+.hueValue {
+  position: absolute;
+  width: calc(100% - var(--wheel-thickness) * 2);
+  height: calc(100% - var(--wheel-thickness) * 2);
+  background: var(--color-background);
+  border-radius: 9999px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  user-select: none;
+  cursor: default;
+  border: var(--white-border-thickness) solid white;
+  box-shadow: rgba(0, 0, 0, 0.02) 0.6px 1.3px 2.2px inset,
+    rgba(0, 0, 0, 0.027) 1.5px 3.1px 5.3px inset,
+    rgba(0, 0, 0, 0.035) 2.9px 5.8px 10px inset,
+    rgba(0, 0, 0, 0.043) 5.1px 10.3px 17.9px inset,
+    rgba(0, 0, 0, 0.05) 9.6px 19.2px 33.4px inset,
+    rgba(0, 0, 0, 0.07) 23px 46px 80px inset;
+}
+.hue {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: var(--white-border-thickness) solid white;
+  background: conic-gradient(
+    rgb(255, 0, 0),
+    rgb(255, 17, 0),
+    rgb(255, 34, 0),
+    rgb(255, 51, 0),
+    rgb(255, 68, 0),
+    rgb(255, 85, 0),
+    rgb(255, 102, 0),
+    rgb(255, 119, 0),
+    rgb(255, 136, 0),
+    rgb(255, 153, 0),
+    rgb(255, 170, 0),
+    rgb(255, 187, 0),
+    rgb(255, 204, 0),
+    rgb(255, 221, 0),
+    rgb(255, 238, 0),
+    rgb(255, 255, 0),
+    rgb(238, 255, 0),
+    rgb(221, 255, 0),
+    rgb(204, 255, 0),
+    rgb(187, 255, 0),
+    rgb(170, 255, 0),
+    rgb(153, 255, 0),
+    rgb(136, 255, 0),
+    rgb(119, 255, 0),
+    rgb(102, 255, 0),
+    rgb(85, 255, 0),
+    rgb(68, 255, 0),
+    rgb(51, 255, 0),
+    rgb(34, 255, 0),
+    rgb(17, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 17),
+    rgb(0, 255, 34),
+    rgb(0, 255, 51),
+    rgb(0, 255, 68),
+    rgb(0, 255, 85),
+    rgb(0, 255, 102),
+    rgb(0, 255, 119),
+    rgb(0, 255, 136),
+    rgb(0, 255, 153),
+    rgb(0, 255, 170),
+    rgb(0, 255, 187),
+    rgb(0, 255, 204),
+    rgb(0, 255, 221),
+    rgb(0, 255, 238),
+    rgb(0, 255, 255),
+    rgb(0, 238, 255),
+    rgb(0, 221, 255),
+    rgb(0, 204, 255),
+    rgb(0, 187, 255),
+    rgb(0, 170, 255),
+    rgb(0, 153, 255),
+    rgb(0, 136, 255),
+    rgb(0, 119, 255),
+    rgb(0, 102, 255),
+    rgb(0, 85, 255),
+    rgb(0, 68, 255),
+    rgb(0, 51, 255),
+    rgb(0, 34, 255),
+    rgb(0, 17, 255),
+    rgb(0, 0, 255),
+    rgb(17, 0, 255),
+    rgb(34, 0, 255),
+    rgb(51, 0, 255),
+    rgb(68, 0, 255),
+    rgb(85, 0, 255),
+    rgb(102, 0, 255),
+    rgb(119, 0, 255),
+    rgb(136, 0, 255),
+    rgb(153, 0, 255),
+    rgb(170, 0, 255),
+    rgb(187, 0, 255),
+    rgb(204, 0, 255),
+    rgb(221, 0, 255),
+    rgb(238, 0, 255),
+    rgb(255, 0, 255),
+    rgb(255, 0, 238),
+    rgb(255, 0, 221),
+    rgb(255, 0, 204),
+    rgb(255, 0, 187),
+    rgb(255, 0, 170),
+    rgb(255, 0, 153),
+    rgb(255, 0, 136),
+    rgb(255, 0, 119),
+    rgb(255, 0, 102),
+    rgb(255, 0, 85),
+    rgb(255, 0, 68),
+    rgb(255, 0, 51),
+    rgb(255, 0, 34),
+    rgb(255, 0, 17)
+  );
+}
